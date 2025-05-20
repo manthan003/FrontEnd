@@ -1,0 +1,218 @@
+/* Angular Resume Component Styles */
+:host {
+  display: block;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.resume-container {
+  background-color: #222;
+  color: #fff;
+}
+
+/* Resume Header */
+.resume-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 40px;
+  border-bottom: 1px solid #333;
+}
+
+.resume-title {
+  font-size: 32px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.experience-years {
+  color: #aaa;
+  font-size: 16px;
+}
+
+/* Content Container for two columns */
+.content-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  padding: 40px;
+}
+
+/* Section Styling */
+.section {
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 30px;
+  position: relative;
+  padding-bottom: 8px;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background-color: #007bff;
+}
+
+/* Timeline Styling */
+.timeline {
+  position: relative;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 35px;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #007bff;
+  border: 2px solid #222;
+  z-index: 2;
+}
+
+.timeline-item::after {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 30px;
+  width: 2px;
+  height: 100%;
+  background-color: #444;
+  z-index: 1;
+}
+
+.timeline-item:last-child::after {
+  display: none;
+}
+
+.timeline-badge {
+  display: inline-block;
+  padding: 5px 15px;
+  border-radius: 20px;
+  background-color: #333;
+  font-size: 14px;
+  color: #fff;
+  margin-bottom: 10px;
+  border: 1px solid #007bff;
+}
+
+.timeline-institution {
+  color: #aaa;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.timeline-degree {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 5px 0;
+}
+
+.timeline-score, .timeline-duration {
+  font-size: 14px;
+  color: #aaa;
+}
+
+/* Certificates Styling */
+.certificates {
+  padding: 0 40px;
+}
+
+.certificate-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.certificate-card {
+  background-color: #333;
+  border-radius: 5px;
+  padding: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.certificate-icon {
+  font-size: 24px;
+  color: #ffd700;
+}
+
+.certificate-content h4 {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0 0 8px 0;
+}
+
+.certificate-content p {
+  font-size: 14px;
+  margin: 0 0 5px 0;
+}
+
+.issuer {
+  color: #aaa;
+}
+
+/* Skills Styling */
+.skills {
+  padding: 0 40px;
+}
+
+.skill-category {
+  margin-bottom: 25px;
+}
+
+.skill-category h4 {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-item {
+  background-color: #0e76a8;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  display: inline-block;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .content-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .certificate-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .resume-header, .section {
+    padding: 20px;
+  }
+}
+
+/* Special styling for education and experience sections to match reference */
+.education, .experience {
+  padding-right: 20px;
+}

@@ -1,0 +1,55 @@
+<div class="contact-container">
+  <!-- Contact Form Section -->
+  <div class="contact-card">
+    <h2>Contact Me</h2>
+
+    <div *ngIf="messageSent" class="alert success">Message sent successfully!</div>
+
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <input
+          type="text"
+          formControlName="name"
+          placeholder="Your Name"
+          [class.invalid]="isInvalid('name')"
+        />
+        <div *ngIf="isInvalid('name')" class="error-message">Name is required.</div>
+      </div>
+
+      <div class="form-group">
+        <input
+          type="email"
+          formControlName="email"
+          placeholder="Your Email"
+          [class.invalid]="isInvalid('email')"
+        />
+        <div *ngIf="isInvalid('email')" class="error-message">Valid email is required.</div>
+      </div>
+
+      <div class="form-group">
+        <textarea
+          rows="5"
+          formControlName="message"
+          placeholder="Your Message"
+          [class.invalid]="isInvalid('message')"
+        ></textarea>
+        <div *ngIf="isInvalid('message')" class="error-message">Message is required.</div>
+      </div>
+
+      <button type="submit" [disabled]="loading || contactForm.invalid">
+        {{ loading ? 'Sending...' : 'Send Message' }}
+      </button>
+    </form>
+  </div>
+
+  <!-- Contact Info Section -->
+  <div class="contact-info-card">
+    <h3>Get in Touch</h3>
+    <ul>
+      <li><strong>Phone:</strong> +91 9746543002</li>
+      <li><strong>Email:</strong> anilsnair261296@gmail.com</li>
+      <li><strong>Location:</strong> Bangalore</li>
+      <li><strong>Info:</strong> Contact directly for more information regarding the project execution.</li>
+    </ul>
+  </div>
+</div>
