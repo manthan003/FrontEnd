@@ -29,7 +29,7 @@
   font-size: 16px;
 }
 
-/* Content Container for two columns */
+/* Content Container */
 .content-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -129,13 +129,9 @@
 }
 
 /* Certificates Styling */
-.certificates {
-  padding: 0 40px;
-}
-
 .certificate-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 20px;
 }
 
@@ -170,49 +166,64 @@
 
 /* Skills Styling */
 .skills {
-  padding: 0 40px;
+  padding: 0 20px;
 }
 
 .skill-category {
   margin-bottom: 25px;
 }
 
-.skill-category h4 {
-  font-size: 16px;
-  margin-bottom: 15px;
+.skill-heading {
+  font-size: 18px;
+  font-weight: 600;
+  color: #00bcd4;
+  margin-bottom: 12px;
+  border-bottom: 2px solid #00bcd4;
+  display: inline-block;
+  padding-bottom: 4px;
 }
 
 .skill-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 12px;
 }
 
 .skill-item {
-  background-color: #0e76a8;
+  background: linear-gradient(135deg, #007bff, #00c6ff);
   color: white;
-  padding: 8px 16px;
-  border-radius: 4px;
+  padding: 8px 14px;
+  border-radius: 20px;
   font-size: 14px;
-  display: inline-block;
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Education & Experience Layout Padding */
+.education, .experience {
+  padding-right: 20px;
+}
+
+/* Extra Content: Certificates + Skills */
+.extra-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  padding: 0 40px 40px 40px;
 }
 
 /* Responsive Design */
 @media (max-width: 992px) {
-  .content-container {
+  .content-container, .extra-content {
     grid-template-columns: 1fr;
+    padding: 0 20px 40px 20px;
   }
-  
-  .certificate-container {
-    grid-template-columns: 1fr;
-  }
-  
+
   .resume-header, .section {
     padding: 20px;
   }
-}
 
-/* Special styling for education and experience sections to match reference */
-.education, .experience {
-  padding-right: 20px;
+  .certificate-container {
+    grid-template-columns: 1fr;
+  }
 }
