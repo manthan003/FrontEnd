@@ -10,7 +10,7 @@ export interface ContactMessage {
 
 @Injectable({ providedIn: 'root' })
 export class ContactService {
-  private apiUrl = 'http://localhost:8080/api/contact';
+  private apiUrl = 'https://manthanbackend.up.railway.app/api/contact';
 
   constructor(private http: HttpClient) {}
 

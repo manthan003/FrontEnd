@@ -1,117 +1,43 @@
-:root {
-  --primary: #1de9b6;
-  --accent: #0f0f0f;
-  --text: #333;
-  --border-color: #ccc;
-  --background: #000000;
-}
-
+/* 1. Ensure the page background stays black */
 body {
-  background: var(--background);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: var(--text);
-  margin: 0;
-  padding: 40px;
+  background: #000;
 }
 
-.contact-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  justify-content: center;
-  align-items: flex-start;
-}
-
+/* 2. Make ALL text inside the cards white */
 .contact-card,
 .contact-info-card {
-  flex: 1 1 400px;
-  max-width: 500px;
-  background: #ffffff; /* white background for content cards */
-  color: var(--text);
-  border-radius: 10px;
-  border: 1px solid var(--border-color);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  padding: 30px;
+  color: #fff;              /* text white */
 }
 
-/* Heading styling */
-.contact-card h2,
-.contact-info-card h3 {
-  color: var(--primary);
-  margin-bottom: 20px;
+/* if you still have var(--text) used inside, override: */
+.contact-card * ,
+.contact-info-card * {
+  color: #fff !important;
 }
 
-/* Form styling */
-.form-group {
-  margin-bottom: 20px;
+/* 3. Force the two cards side-by-side on desktop */
+.contact-container {
+  display: flex;
+  flex-wrap: nowrap;        /* no wrapping */
+  justify-content: space-between;
+  gap: 20px;
 }
 
-input,
-textarea {
-  width: 100%;
-  padding: 12px;
-  border-radius: 6px;
-  border: 1px solid var(--border-color);
-  background-color: #f9f9f9;
-  color: #333;
-  font-size: 15px;
+/* 4. Make each card flexibly share the row */
+.contact-card,
+.contact-info-card {
+  flex: 1 1 45%;            /* each takes about half the row */
+  max-width: 45%;
 }
 
-input::placeholder,
-textarea::placeholder {
-  color: #888;
-}
-
-.invalid {
-  border-color: #ff4d4f;
-}
-
-.error-message {
-  color: #ff4d4f;
-  font-size: 13px;
-  margin-top: 5px;
-}
-
-button {
-  background: var(--primary);
-  color: #000;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background 0.3s;
-}
-
-button:hover:not(:disabled) {
-  background: #00bfa5;
-}
-
-button:disabled {
-  background: #999;
-  cursor: not-allowed;
-}
-
-.alert.success {
-  background: #2e7d32;
-  padding: 10px;
-  color: #fff;
-  border-radius: 5px;
-  margin-bottom: 20px;
-}
-
-/* Contact info list */
-.contact-info-card ul {
-  list-style: none;
-  padding: 0;
-}
-
-.contact-info-card li {
-  margin-bottom: 12px;
-  font-size: 15px;
-  color: var(--text);
-}
-
-.contact-info-card li strong {
-  color: #000;
+/* 5. Optional: stack vertically on small screens */
+@media (max-width: 768px) {
+  .contact-container {
+    flex-wrap: wrap;        /* allow wrap back to one column */
+  }
+  .contact-card,
+  .contact-info-card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
 }

@@ -45,11 +45,11 @@
 }
 
 .profile-pic {
-  width: 200px;
-  height: 200px;
+  width: 280px;       /* increased from 200px */
+  height: 280px;      /* increased from 200px */
   border-radius: 50%;
-  margin-right: 40px;
-  border: 5px solid #333;
+  margin-right: 50px; /* slightly more spacing from text */
+  border: 6px solid #333;
 }
 
 .intro-text .title {
@@ -110,4 +110,62 @@
   border-radius: 10px;
   text-align: center;
   flex: 1;
+}
+.what-i-do {
+  padding: 40px 20px;
+  color: #fff;
+  background-color: #1e1e1e;
+}
+
+.what-i-do h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  color: #1de9b6;
+}
+
+.grid-3 {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);  /* exactly 3 columns */
+}
+
+/* On tablets, show 2 per row */
+@media (max-width: 992px) {
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* On phones, stack 1 per row */
+@media (max-width: 600px) {
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+.card {
+  background-color: #2a2a2a;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.card .icon {
+  font-size: 2rem;
+  color: #1de9b6;
+  margin-bottom: 12px;
+}
+
+.card h3 {
+  margin: 10px 0;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.card p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #ccc;
 }

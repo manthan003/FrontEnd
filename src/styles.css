@@ -1,4 +1,208 @@
+/*--------------------------------------------------
+  Global reset & dark background
+--------------------------------------------------*/
+html,
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  padding: 0;
+  background-color: #1e1e1e;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/*--------------------------------------------------
+  Navbar
+--------------------------------------------------*/
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1e1e1e;
+  padding: 10px 20px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo {
+  background-color: #1de9b6;
+  color: #0f0f0f;
+  font-size: 1.25rem;
+  font-weight: bold;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-text {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: white;
+}
+
+.nav-links a {
+  margin: 0 10px;
+  color: white;
+  text-decoration: none;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  text-decoration: underline;
+}
+
+/*--------------------------------------------------
+  Content wrapper
+--------------------------------------------------*/
+.content-area {
+  padding: 20px;
+  background-color: #1e1e1e;
+  min-height: calc(100vh - 60px);  /* adjust if navbar height changes */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/*--------------------------------------------------
+  Intro Section (About page)
+--------------------------------------------------*/
+.intro-section {
+  display: flex;
+  flex-direction: column;      /* stack brand, image, text */
+  align-items: center;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 60px;
+  padding: 20px;
+}
+
+.intro-brand {
+  margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .intro-section {
+    flex-direction: row;       /* image + text side by side */
+    text-align: left;
+  }
+  .intro-brand {
+    position: absolute;
+    top: 20px;
+  }
+}
+
+.profile-pic {
+  width: 280px;       /* increased from 200px */
+  height: 280px;      /* increased from 200px */
+  border-radius: 50%;
+  margin-right: 50px; /* slightly more spacing from text */
+  border: 6px solid #333;
+}
+.intro-text {
+  max-width: 500px;
+}
+
+.intro-text .title {
+  color: #aaa;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.intro-text h1 {
+  font-size: 36px;
+  font-weight: bold;
+  margin: 0 0 16px;
+}
+
+.intro-text .description {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #ccc;
+  margin-bottom: 24px;
+}
+
+/* Buttons inside intro */
+.buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.buttons button {
+  background: transparent;
+  border: 2px solid #1de9b6;
+  padding: 10px 20px;
+  color: #fff;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.buttons button:hover {
+  background-color: #1de9b6;
+}
+
+/*--------------------------------------------------
+  What I Do grid (optional section)
+--------------------------------------------------*/
+.what-i-do {
+  width: 100%;
+  padding: 40px 20px;
+  background-color: #1e1e1e;
+}
+
+.what-i-do h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  color: #1de9b6;
+}
+
+.grid-3 {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 992px) {
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background-color: #2a2a2a;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.card .icon {
+  font-size: 2rem;
+  color: #1de9b6;
+  margin-bottom: 12px;
+}
+
+.card h3 {
+  margin: 10px 0;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.card p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #ccc;
 }

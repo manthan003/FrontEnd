@@ -1,11 +1,15 @@
 <nav class="navbar">
-  <div class="brand">ManthanCR</div>
+  <div class="brand">
+    <span class="logo">M</span>
+    <span class="brand-text">ManthanCR</span>
+  </div>
   <div class="nav-links">
-   <a routerLink="/about">About Me</a>
-<a routerLink="/resume">Resume</a>
-<a routerLink="/contact">Contact</a>
-
+    <a routerLink="/about" routerLinkActive="active">About Me</a>
+    <a routerLink="/resume" routerLinkActive="active">Resume</a>
+    <!-- <a routerLink="/contact" routerLinkActive="active">Contact</a> -->
   </div>
 </nav>
 
-<router-outlet></router-outlet>
+<div class="content-area">
+  <router-outlet></router-outlet>
+</div>
