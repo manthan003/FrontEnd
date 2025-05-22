@@ -1,12 +1,17 @@
-/* Angular Resume Component Styles */
 :host {
   display: block;
   font-family: 'Segoe UI', Arial, sans-serif;
+  animation: fadeIn 0.7s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .resume-container {
-  background-color: #222;
-  color: #fff;
+  background-color: #1f1f1f;
+  color: #f0f0f0;
 }
 
 /* Resume Header */
@@ -16,32 +21,40 @@
   align-items: center;
   padding: 30px 40px;
   border-bottom: 1px solid #333;
+  background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+  animation: slideDown 0.5s ease-in-out;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .resume-title {
   font-size: 32px;
   font-weight: 500;
-  margin: 0;
 }
 
 .experience-years {
-  color: #aaa;
+  color: #bbb;
   font-size: 16px;
+  font-style: italic;
 }
 
-/* Content Container */
+/* Layout */
 .content-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0;
+  gap: 40px;
   padding: 40px;
 }
 
-/* Section Styling */
 .section {
   margin-bottom: 40px;
+  animation: fadeIn 0.7s ease-in;
 }
 
+/* Section Titles */
 .section-title {
   font-size: 24px;
   font-weight: 500;
@@ -56,20 +69,21 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 40px;
+  width: 50px;
   height: 3px;
-  background-color: #007bff;
+  background-color: #00c6ff;
 }
 
-/* Timeline Styling */
-.timeline {
-  position: relative;
-}
-
+/* Timeline */
 .timeline-item {
-  position: relative;
   padding-left: 30px;
   margin-bottom: 35px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.timeline-item:hover {
+  transform: translateX(5px);
 }
 
 .timeline-item::before {
@@ -80,8 +94,8 @@
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background-color: #007bff;
-  border: 2px solid #222;
+  background-color: #00c6ff;
+  border: 2px solid #1f1f1f;
   z-index: 2;
 }
 
@@ -93,60 +107,59 @@
   width: 2px;
   height: 100%;
   background-color: #444;
-  z-index: 1;
-}
-
-.timeline-item:last-child::after {
-  display: none;
 }
 
 .timeline-badge {
-  display: inline-block;
   padding: 5px 15px;
   border-radius: 20px;
-  background-color: #333;
+  background-color: #292929;
   font-size: 14px;
   color: #fff;
   margin-bottom: 10px;
-  border: 1px solid #007bff;
+  border: 1px solid #00c6ff;
 }
 
 .timeline-institution {
   color: #aaa;
   font-size: 14px;
-  margin-bottom: 5px;
 }
 
 .timeline-degree {
   font-size: 16px;
   font-weight: 600;
-  margin: 0 0 5px 0;
+  margin: 5px 0;
 }
 
-.timeline-score, .timeline-duration {
+.timeline-score {
   font-size: 14px;
   color: #aaa;
 }
 
-/* Certificates Styling */
-.certificate-container {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
-}
-
+/* Certificates */
 .certificate-card {
-  background-color: #333;
-  border-radius: 5px;
+  background-color: #292929;
+  border-radius: 8px;
   padding: 20px;
   display: flex;
   align-items: flex-start;
   gap: 15px;
+  transition: transform 0.3s;
+}
+
+.certificate-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
 }
 
 .certificate-icon {
   font-size: 24px;
   color: #ffd700;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
 }
 
 .certificate-content h4 {
@@ -155,24 +168,12 @@
   margin: 0 0 8px 0;
 }
 
-.certificate-content p {
-  font-size: 14px;
-  margin: 0 0 5px 0;
-}
-
 .issuer {
   color: #aaa;
+  font-size: 13px;
 }
 
-/* Skills Styling */
-.skills {
-  padding: 0 20px;
-}
-
-.skill-category {
-  margin-bottom: 25px;
-}
-
+/* Skills */
 .skill-heading {
   font-size: 18px;
   font-weight: 600;
@@ -196,34 +197,26 @@
   border-radius: 20px;
   font-size: 14px;
   font-weight: 500;
+  transition: all 0.3s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* Education & Experience Layout Padding */
-.education, .experience {
-  padding-right: 20px;
+.skill-item:hover {
+  transform: scale(1.05);
 }
 
-/* Extra Content: Certificates + Skills */
+/* Extra Sections */
 .extra-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0;
+  gap: 40px;
   padding: 0 40px 40px 40px;
 }
 
-/* Responsive Design */
+/* Responsive */
 @media (max-width: 992px) {
   .content-container, .extra-content {
     grid-template-columns: 1fr;
-    padding: 0 20px 40px 20px;
-  }
-
-  .resume-header, .section {
     padding: 20px;
-  }
-
-  .certificate-container {
-    grid-template-columns: 1fr;
   }
 }
