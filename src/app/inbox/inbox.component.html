@@ -1,9 +1,19 @@
-<!-- src/app/inbox/inbox.component.html -->
-<h2>Inbox</h2>
-<div *ngIf="messages.length === 0">No messages yet.</div>
+<div class="inbox-container">
+  <h2>Inbox Messages</h2>
 
-<div *ngFor="let msg of messages" class="message-card">
-  <h4>{{ msg.name }} ({{ msg.email }})</h4>
-  <p>{{ msg.message }}</p>
-  <hr />
+  <div *ngIf="messages.length === 0">
+    No messages yet.
+  </div>
+
+  <ul *ngIf="messages.length > 0">
+    <li *ngFor="let msg of messages; let i = index">
+      <div>
+        <strong>Name:</strong> {{ msg.name }}<br>
+        <strong>Email:</strong> {{ msg.email }}<br>
+        <strong>Message:</strong> {{ msg.message }}<br>
+        <button (click)="deleteMessage(i)">Delete</button>
+      </div>
+      <hr>
+    </li>
+  </ul>
 </div>
