@@ -1,21 +1,33 @@
+// src/app/contact/contact.service.ts
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { ContactMessage } from '../models/contact-message.model';
 
-export interface ContactMessage {
-  name: string;
-  email: string;
-  message: string;
-}
+const STORAGE_KEY = 'contactMessages';
 
 @Injectable({ providedIn: 'root' })
 export class ContactService {
-  private apiUrl = 'https://manthanbackend.up.railway.app/api/contact';
+  private messages: ContactMessage[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor() {
+    const storedMessages = localStorage.getItem(STORAGE_KEY);
+    if (storedMessages) {
+      this.messages = JSON.parse(storedMessages);
+    }
+  }
 
   sendMessage(message: ContactMessage): Observable<string> {
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.post(this.apiUrl, message, { headers, responseType: 'text' });
+    this.messages.push(message);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(this.messages));
+    return of('Message stored in localStorage');
+  }
+
+  getMessages(): ContactMessage[] {
+    return this.messages;
+  }
+
+  clearMessages(): void {
+    this.messages = [];
+    localStorage.removeItem(STORAGE_KEY);
   }
 }

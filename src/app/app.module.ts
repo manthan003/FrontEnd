@@ -8,6 +8,7 @@ import { ContactService } from './contact/contact.service';
 import { AboutComponent } from './about/about.component';
 import { ResumeComponent } from './resume/resume.component';
 import { ReactiveFormsModule } from '@angular/forms'; 
+import { InboxComponent } from './inbox/inbox.component';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -17,6 +18,7 @@ import { AppRoutingModule } from './app-routing.module';
     ContactComponent,
     AboutComponent,
     ResumeComponent,
+    InboxComponent
 
     
   ],

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ContactService } from './contact.service';
+import { ContactMessage } from '../models/contact-message.model';
 
 @Component({
   selector: 'app-contact',
@@ -31,8 +32,9 @@ export class ContactComponent implements OnInit {
     if (this.contactForm.invalid) return;
 
     this.loading = true;
+    const message: ContactMessage = this.contactForm.value;
 
-    this.contactService.sendMessage(this.contactForm.value).subscribe({
+    this.contactService.sendMessage(message).subscribe({
       next: () => {
         this.loading = false;
         this.messageSent = true;
